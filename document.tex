@@ -1,0 +1,122 @@
+
+\documentclass[a4paper]{article}
+%\documentclass[a4paper,twocolumn]{article}
+%\usepackage{flushend}
+
+\usepackage[backgroundcolor=blue!10!white]{todonotes}
+
+\usepackage[top=1in, bottom=1in, left=.8in, right=.8in]{geometry}
+
+\usepackage{amsmath,amssymb}
+\usepackage{amsfonts,amsbsy}
+\usepackage{dsfont}
+\usepackage[ansinew]{inputenc}
+\usepackage{mathtools}
+\usepackage[adobe-utopia]{mathdesign}
+
+\usepackage{textcomp} %make the copyright symbol look nice
+\newcommand{\ftextnumero}{{\fontfamily{txr}\selectfont \textnumero} }
+
+\newtheorem{example}{Example} %[section]
+
+\definecolor{darkBlue}{RGB}{0,0,205} 
+
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+    allcolors={darkBlue},
+}
+
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
+
+\usepackage{enumitem}
+%\setlist{nolistsep}
+\setlist{topsep=5pt, parsep=0pt, itemsep=3pt}
+\renewcommand{\labelitemi}{$\circ$}
+
+\usepackage[natbib=true,style=authoryear-icomp,sortcites=false,firstinits=true,maxcitenames=2, maxbibnames=99,useprefix=true,dashed=false,url=false,doi=false,isbn=false,eprint=false,backend=bibtex8]{biblatex}
+
+\bibliography{bib}
+                        
+%\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{rotating}
+\usepackage{multirow}
+%\usepackage{longtable}
+\usepackage{booktabs}
+
+\newcommand{\bigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
+
+%% Allow relative font size specifications (e.g. \smaller, \larger).
+\usepackage{relsize}
+\newcommand*{\textitsc}[1]{\textit{\MakeUppercase{\smaller[2]#1}}}
+
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+%\algrenewcommand\alglinenumber[1]{
+    %{\sf\footnotesize\addfontfeatures{color=888888,Numbers=Monospaced}#1}}
+\algrenewcommand{\alglinenumber}[1]{\color{gray}\sffamily\scriptsize#1}
+\newcommand{\OR}{\textbf{or} }
+\newcommand{\AND}{\textbf{and} }
+\newcommand{\BREAK}{\textbf{break} }
+\newcommand{\CONTINUE}{\textbf{continue} }
+
+\newcommand{\HRule}{\rule{\linewidth}{0.15mm}}
+
+%push the footnote under the bottom figure
+\usepackage[bottom]{footmisc}
+
+%no "abstract" title
+\renewcommand{\abstractname}{\vspace{-\baselineskip}}
+% % % % % % % % % % % % % % % % % % % % %
+
+\usepackage{abstract}
+\providecommand{\keywords}[1]{\noindent\textbf{\textit{Keywords: }} #1}
+
+\begin{document}
+
+\title{xXXx}
+
+\author{Yilin Huang, Alexander Verbraeck\\
+	 Delft University of Technology\\
+	 Faculty of Technology, Policy \& Management\\
+	 Systems Engineering \& Simulation \\
+	\and 
+	XX
+	}
+
+\date{\today}
+
+
+%\twocolumn[
+%\begin{@twocolumnfalse}
+%\maketitle
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+%\end{@twocolumnfalse}
+%]
+
+
+
+\maketitle
+\begin{abstract}
+	\input{abstract}
+\end{abstract}
+
+
+\saythanks
+
+\input{intro}
+\input{chap_criteria}
+\input{concl}
+
+
+\renewcommand{\bibfont}{\small}
+\printbibliography
+
+
+\end{document}
+

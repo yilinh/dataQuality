@@ -1,0 +1,209 @@
+
+
+\paragraph{Data Quality Issues}
+
+Although data quality varies widely from case to case, data is often of poor quality in practice. In this research, data quality is accessed according to how well the data provides information for model component identification, composition and configuration. 
+Common data quality criteria are listed in Table~\ref{tbl:criteria}, which include accuracy, completeness, consistency, presentation suitability, %\footnote{Presentation suitability refers to the degree to which the data is appropriate for the purpose of data use in terms of format, unit, precision and type-sufficiency \citep{Price2005,McGilvray2008}, where type-sufficiency refers to the degree to which the data includes all the types of useful information \citep{Price2005}.} 
+among others. %\footnote{Readers who are interested in Data Quality Issues may refer to \citet[][Chap. 3.3]{Huang2013}.}.
+Detecting and improving data quality issues need domain understanding and data understanding. 
+% 
+%\begin{table*}[t]
+%  \small
+%  \begin{center}
+%  \begin{tabular}{c | l >{\raggedright}p{1.5cm} p{5.2cm} >{\raggedright}p{3cm} p{4.2cm}}
+%    \toprule
+%      & \# & \textbf{Criterion} &  \textbf{Definition} & \textbf{Reference} &\textbf{Example/Explanation} \\
+%    \midrule
+%		\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{Syntactics} }} & 1. & Syntactic accuracy & The conformity of a data value $v$ to the corresponding definition domain $D$ of the data value. & \citet{Scannapieco2005,Batini2009} & % \parbox{5cm}{Accurate: $v$=``Yilin'', $v'$=``Chris''\\Inaccurate: $v$=``Yilin'', $v'$=2012}\\
+%		\begin{minipage}[t]{\columnwidth}
+%		Accurate: $v$=``Yilin'', $v'$=``Chris''\\Inaccurate: $v$=``Yilin'', $v'$=2012\\for $D$=\texttt{varchar}
+%		\end{minipage}\\
+%		\cline{2-6}
+%		 &2. & Syntactic consistency & The uniformity in the syntactic representation of data values that have the same or similar semantics. & \citet{Pipino2002,Loshin2011} &
+%		Inconsistent: in table-1 employee.id=1234 while in table-2 enrollment.id=``1234''.\\
+%		\midrule
+%		\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{Semantics} }} & 3. & Semantic accuracy &The conformity of a data value $v$ to its real-world value $v'$ that is considered correct. & \citet{Fox1994,Redman1996,Batini2009} & 
+%		\begin{minipage}[t]{\columnwidth}
+%		Accurate: $v$=10.1, $v'$=10\\Inaccurate: $v$=11, $v'$=10\\for $|v-v'|\leq$ 0.1
+%		\end{minipage}\\
+%		\cline{2-6}
+%		 & 4.& Semantic completeness & The degree to which existing values are included in data relevant to the purpose for which the data is stored. & \citet{Redman1996, Bovee2003,Price2005} & Incomplete: there are missing values in the data.\\
+%				\cline{2-6}
+%		& 5. & Mapping consistency & The uniformity in the key values of data representing the same  external instance. & \citet{Price2005} & Inconsistent: keys assigned with different values intend to map the same external instance.\\
+%		\midrule
+%		\multirow{5}{*}{\rotatebox[origin=c]{90}{\textbf{Pragmatics} }} & 6. & Pragmatic completeness & The degree to which data is of sufficient breadth, depth and scope for the purpose of data use. & \citet{Wang1996} & Incomplete: there is missing information for a given use of the stored data.\\
+%		\cline{2-6} 
+%		 & 7. & Timeliness &The extent to which data is within a valid time frame with respect to the purpose of data use. & \citet{Wang1996,Price2005} & University course schedules are valid for a given time frame (e.g., a particular semester). \\
+%		\cline{2-6}
+%		& 8. & Presentation suitability & The degree to which the data format, unit, precision and type-sufficiency are appropriate for the purpose of data use. & \citet{Price2005,McGilvray2008} & Data format, unit, precision and type-sufficiency are sub-criteria.\\
+%		\cline{3-6}
+%		&  & \textit{-- Precision} & The degree to which each data value expresses sufficient detail that is appropriate for the purpose of data use. & \citet{Pipino2002,Price2005} & The appropriateness of image resolution is dependent on the use of images.\\
+%		\cline{3-6}
+%		&  & \emph{-- Type-sufficiency} & The degree to which data includes all of the types of information useful for the purpose of data use. & \citet{Price2005} & \\
+%		 %&Precision &The degree to which each data value expresses sufficient detail that is appropriate for the purpose of data use. & \citet{Pipino2002,Price2005} *& 
+%		%\begin{minipage}[t]{\columnwidth} Accurate: $v$=10.12345, $v'$=10.12344\\Inaccurate: $v$=``Yilin'', $v'$=``Chris'' \end{minipage}\\
+%    \bottomrule
+%  \end{tabular}\caption{Definitions of data quality criteria}\label{tbl:criteria}
+%  \end{center}
+%\end{table*}
+%
+
+\begin{sidewaystable} %[!htbp]
+	\small
+	\begin{center}
+		\begin{tabular}{l l >{\raggedright}p{1.9cm} p{5.2cm} >{\raggedright}p{3.5cm} p{4.5cm}}
+			\toprule
+			\textbf{Category} & \# & \textbf{Criterion} &  \textbf{Definition} & \textbf{Reference} &\textbf{Example/Explanation} \\
+			\midrule
+			A. Syntactics & 1. & Syntactic accuracy & The conformity of a data value $v$ to the corresponding definition domain $D$ of the data value. & \citet{Scannapieco2005,Batini2009} & % \parbox{5cm}{Accurate: $v$=``Yilin'', $v'$=``Chris''\\Inaccurate: $v$=``Yilin'', $v'$=2012}\\
+			\begin{minipage}[t]{\columnwidth}
+				Accurate: $v$=``Yilin'', $v'$=``Chris''\\Inaccurate: $v$=``Yilin'', $v'$=2012\\for $D$=\texttt{varchar}
+			\end{minipage}\\
+			\cline{2-6}
+			&2. & Syntactic consistency & The uniformity in the syntactic representation of data values that have the same or similar semantics. & \citet{Pipino2002,Loshin2011} &
+			\begin{minipage}[t]{\columnwidth}
+				Inconsistent: \\in table-1 employee.id=1234 while \\in table-2 enrollment.id=``1234''.
+			\end{minipage}\\
+			\midrule
+			B. Semantics & 3. & Semantic accuracy &The conformity of a data value $v$ to its real-world value $v'$ that is considered correct. & \citet{Fox1994,Redman1996,Batini2009} & 
+			\begin{minipage}[t]{\columnwidth}
+				Accurate: $v$=10.1, $v'$=10\\Inaccurate: $v$=11, $v'$=10\\for $|v-v'|\leq$ 0.1
+			\end{minipage}\\
+			\cline{2-6}
+			& 4.& Semantic completeness & The degree to which existing values are included in data relevant to the purpose for which the data is stored. & \citet{Redman1996, Bovee2003,Price2005} & Incomplete: there are missing values in the data.\\
+			\cline{2-6}
+			& 5. & Mapping consistency & The uniformity in the key values of data representing the same  external instance. & \citet{Price2005} & Inconsistent: keys assigned with different values intend to map the same external instance.\\
+			\midrule
+			C. Pragmatics & 6. & Pragmatic completeness & The degree to which data is of sufficient breadth, depth and scope for the purpose of data use. & \citet{Wang1996} & Incomplete: there is missing information for a given use of the stored data.\\
+			\cline{2-6} 
+			& 7. & Timeliness &The extent to which data is within a valid time frame with respect to the purpose of data use. & \citet{Wang1996,Price2005} & University course schedules are valid for a given time frame (e.g., a particular semester). \\
+			\cline{2-6}
+			& 8. & Presentation suitability & The degree to which the data format, unit, precision and type-sufficiency are appropriate for the purpose of data use. & \citet{Price2005,McGilvray2008} & Data format, unit, precision and type-sufficiency are sub-criteria.\\
+			\cline{3-6}
+			&  & - \textit{Precision} & The degree to which each data value expresses sufficient detail that is appropriate for the purpose of data use. & \citet{Pipino2002,Price2005} & The appropriateness of image resolution is dependent on the use of images.\\
+			\cline{3-6}
+			&  & - \emph{Type-sufficiency} & The degree to which data includes all of the types of information useful for the purpose of data use. & \citet{Price2005} & \\
+			%&Precision &The degree to which each data value expresses sufficient detail that is appropriate for the purpose of data use. & \citet{Pipino2002,Price2005} *& 
+			%\begin{minipage}[t]{\columnwidth} Accurate: $v$=10.12345, $v'$=10.12344\\Inaccurate: $v$=``Yilin'', $v'$=``Chris'' \end{minipage}\\
+			\bottomrule
+		\end{tabular}
+		\caption{Definitions and examples of data quality criteria}\label{tbl:criteria}
+	\end{center}
+\end{sidewaystable}
+
+\subsubsection{Data Quality Criteria} 
+
+\textit{Accuracy}.
+Although many data quality studies include accuracy as a key criterion, there is no commonly accepted definition of what it means exactly\footnote{For example, \citet{Gelbstein2003} defines accuracy as the opposite of an error.}, in particular its difference to quality criteria such as correctness \citep{Wand1996, Price2005}. 
+We deem data as being accurate when the data values stored in the database are in conformity with the actual or defined values \citep{Ballou1985, Fox1994}. Moreover, we distinguish syntactic accuracy from semantic accuracy \citep{Scannapieco2005,Batini2009}. 
+\textit{Syntactic accuracy} is the conformity of a data value $v$ to the corresponding definition domain $D$ of the data value \citep{Batini2009}. 
+\textit{Semantic accuracy} is the conformity of a data value $v$ to its real-world value $v'$ that is considered correct \citep{Fox1994,Redman1996,Batini2009}. For example, that $v$=``Yilin'' when $v'$=``Chris'' is considered syntactically accurate but semantically inaccurate if the definition domain is specified as character string. Precision as a data quality criterion does not pertain to semantic accuracy according to this definition, as the conformity can be defined to be an approximation, i.e., $v\approx v'$, to tolerate imprecision. 
+
+\textit{Completeness}. 
+\citet{Wand1996, Batini2009} define completeness as the degree to which a given data collection includes data describing the corresponding set of real-world objects and phenomena.
+Data completeness can be both semantic and pragmatic. 
+\textit{Semantic completeness} is the degree to which existing values are included in a data collection relevant to the purpose for which the data is stored\footnote{Semantic completeness is often related to the \texttt{null} values in a database; a \texttt{null} value connotes a missing data value  (i) that exists but is not known, (ii) that does not exist, or (iii) that is not known whether it exists or not \citep{Redman1996,Price2005,Batini2009}. Only the first case is seen as being semantic incomplete by our definition.} \citep{Redman1996,Bovee2003,Price2005}.  
+%
+Consider a data collection of employees' birth dates and driving license numbers. 
+A \texttt{null} value signifies incompleteness for a birth date but not necessarily for a driving license number as not everyone must have a driving license. 
+On the other hand, the non-occurrence of \texttt{null} values does not necessarily entail semantic completeness.
+When, e.g., a new employee's data does not appear in the database at all, the data is incomplete although there is no \texttt{null} value that signifies this incompleteness. We may call missing values of this nature ``missing record''. 
+%
+A large part of data (in-)completeness is related to the purpose of data use.  \textit{Pragmatic completeness}  is considered in relation with the purpose of data use rather than the (original) purpose for which the data is collected.  \citet{Wang1996} define this as the degree to which data is of sufficient breadth, depth, and scope for the purpose of data use, i.e., whether there is missing information for a given use of the stored data. 
+
+\textit{Consistency}. 
+Intuitively, data is deemed consistent when there is no contradiction or disagreement in the stored data \citep{Wang1996}. 
+Data consistency issues can be found in syntactic and semantic categories. \textit{Syntactic consistency} refers to uniformity in the (syntactic) representation of data values that have same or similar semantics \citep{Pipino2002,Loshin2011}. This means that data with the same semantics should best share the same underlying syntactic formats and structures. 
+\textit{Semantic consistency} refers to the %violation or 
+conformity of (explicit or implicit) semantic rules over a set of data attributes and values \citep{Batini2009}. Ideally, similar data attributes should share consistent names and meanings \citep{Loshin2011} and inter-related attribute values should not have conflicting or unaccountable meanings. 
+\citet{Price2005} further differentiate consistency in key values with that in non-key values\footnote{A key (or mapping) value maps a (non-key) data value (or units) to a represented external (e.g., real-world) instance; a non-key value is a representation (of an attribute) of the external instance itself \citep{Price2005}.}.
+% 
+Semantic consistency in \emph{key values} -- let us call it \textit{mapping consistency} -- refers to the uniformity in the key values of data representing the same external instance \parencite*{Price2005}. 
+More specifically, when keys assigned with different values indeed intend to map the same external instance, these keys are considered semantically inconsistent although they may be syntactically consistent. 
+Mapping inconsistency often occurs across databases or data repositories. Some authors call it identifiablility or object identification problem \citep[e.g.,][]{Batini2006,Loshin2011}.
+% 
+Semantic consistency in \emph{non-key values}\footnote{For example, when person $A$'s marital status is ``married'' and person $A$'s spouse is person $B$, there would be a semantic inconsistency if person $B$'s marital status is ``single''.} is frequently mentioned in literature, and evidently it often appears in data.   
+Nonetheless, we \emph{exclude} it as a data quality criterion. % for a simple reason. 
+Inconsistency often occurs in real-world objects and phenomena. It does not necessarily indicate erroneous data values and hence we argue that it is not a valid criterion for data quality. 
+For the data values that do require semantic consistency\footnote{For example, an under-age child can not be ``married'', neither does the child have a driving license.}, the data quality is covered by the semantic accuracy criterion since the values can not be accurate when they are not consistent. 
+
+The accuracy criteria mentioned earlier concerns both key values and non-key values. Semantic accuracy in non-key values implies semantic accuracy in mapping (i.e., the associated key-values), not vice versa.
+More specifically, when a non-key value is semantically accurate, it has a meaningful and unambiguous mapping\footnote{A non-key value is meaningfully mapped when it refers to at least one specific external instance; it is unambiguously mapped when it refers to at most one specific external instance \citep{Price2005}.}. 
+
+
+\textit{Timeliness}. 
+It may refer to the time expectation for accessibility of data \citep[e.g.,][]{Loshin2011}, the delay between a change of a real-world state and the resulting modification of the information system state \citep[e.g.,][]{Wand1996}, or how up-to-date the data is with respect to the task it is used for \citep[e.g.,][]{Wang1996,Pipino2002}, etc.
+Some authors \citep[e.g.,][]{Fox1994,Catarci2002,Bovee2003,Batini2006,Batini2009} characterize timeliness with sub-criteria such as \emph{currency} (i.e., how recent is the data, or how promptly the data is updated) and \emph{volatility} (i.e., how long the data remains valid, or how frequently the data varies in time). Timeliness in this research is in the pragmatic category and it refers to the extent to which data is within a valid time frame with respect to the purpose of data use \citep{Price2005}.   
+
+\textit{Presentation Suitability}. 
+This criterion is in the pragmatic quality category and it refers to the degree to which the data format, unit, precision and type-sufficiency are appropriate for the purpose of data use %\citep{Price2005}. 
+%Data is suitably presented when it is appropriate for the purpose of use with respect to, e.g.,  
+\citep{Price2005,McGilvray2008}. %the type of information displayed \citep{Price2005}.
+Data \textit{precision}\footnote{When precision is related to measurement systems, it is the degree to which repeated measurements under unchanged conditions show the same results \citep{Taylor1999}. As for data quality, we support the view that data precision should be considered with respect to data use \citep{Fox1994, Levitin1995,Price2005}. Data precision without context is often meaningless. After all, no real measurement is infinitely precise.} is defined as the degree to which each data value expresses sufficient detail that is appropriate for the purpose of data use \citep{Pipino2002,Price2005}; \textit{type-sufficiency} refers to the degree to which the data includes all the types of information useful for the purpose of data use \citep{Price2005}. 
+
+To provide an overview, Table~\ref{tbl:categories} numerates the proposed data quality categories and criteria. 
+Table~\ref{tbl:criteria} summarizes the definitions of the eight criteria 
+%Three categories are proposed following \citet{Price2005} with eight data quality criteria 
+ordered to the three categories. 
+
+\begin{table}[h!]
+  \small
+  \begin{center}
+  %\begin{tabular}{l c c c c >{\centering\arraybackslash}m{1.6cm}}
+  \begin{tabular}{l c c c c c}
+    \toprule
+		%&I. & II. & III. & IV. & IV. \\
+    &\textbf{Accuracy} & \textbf{Completeness} & \textbf{Consistency} & \textbf{Timeliness} & \textbf{Presentation Suitability} \\
+    \midrule
+    (A) Syntactics & \#1. & - &  \#2. & - & -\\
+    %\hline
+    (B) Semantics &  \#3. &  \#4. &  \#5. (mapping) & - & -\\
+    %\hline
+    (C) Pragmatics & - &  \#6. & - &  \#7. &  \#8. \\
+    \bottomrule
+  \end{tabular}
+  \caption{Proposed data quality categories and criteria}\label{tbl:categories}
+  \end{center}
+\end{table}
+
+
+\subsubsection{Discussion on Data Quality Issues and Measures}
+\label{chap:dataIssues:discussion}
+
+For AMG with respect to component-based modelling (i.e., the pragmatic use of data in this research), we assess data quality according to  \emph{how well data provides information for model component identification, composition and configuration}. 
+\citet{Price2005} argue that the pragmatic use of data influences the perceptions of syntactics and semantic criteria. They includes this as a quality criterion in the pragmatic category.
+We support this view but do not explicitly include this criterion. We assume that the data use for AMG is a given goal, and data users shall consider the syntactics and semantic criteria  with the application domain. %As such, the syntactics and semantic criteria are considered with this use in mind. 
+% 
+Detecting and solving data quality issues need \emph{domain understanding} and \emph{data understanding}. 
+The purpose of defining data quality categories and criteria is to help detect and solve data quality issues for AMG. 
+%In literature, methodologies for data quality assessment and improvement are discussed in the general context of information systems and data management \citep[see, e.g., the survey by][]{Batini2009}. In this research, as stated earlier, data quality is assessed in relation with how well it provides information about model parts and relations for AMG. 
+
+
+Data issues in the syntactic category are often straightforward. Syntactic accuracy (\#1.) is related to the lawfulness rather than the correctness of data values \citep{Wand1996,}. In many information systems, it can be automatically checked by \textit{comparison functions} \citep{Batini2006}. 
+Syntactic consistency (\#2.) is particularly relevant when data is sourced from multiple information systems \citep{Shanks1999}. Syntactic inconsistency can be typically solved through data type and format conversion. 
+
+In order to measure semantic accuracy (\#3.) of a data value $v$, (i) the corresponding true value $v'$ has to be known, or (ii) it should be possible, with the support of additional knowledge, to deduce whether $v$ is or is not $v'$ \citep{Batini2006}.
+The first option is a non-option in a computational sense, because if the ``true value'' is or can be known digitally, then that value should be used instead of $v$. Hence, semantic accuracy is only computationally measurable and solvable with sufficient knowledge to reason the deduction. %The two issues of semantic accuracy listed in Table~\ref{tbl:dataIssues}, e.g.,  can be measured and corrected (if inaccurate) with the support of domain knowledge. 
+
+Data completeness (\#4. and \#6.) issues can be found in both semantic and pragmatic categories. In either case, when data is truly incomplete\footnote{Meaning that (i) the data values or records are unknown but do exist, (ii) they are not contained by other accessible data sources, and (iii) they are not deducible from known data values or records.}, we can only complete the data by acquisition of the missing parts. 
+%In dealing with the pragmatic incompleteness in Table~\ref{tbl:dataIssues}, e.g., the three missing vehicle generation points are added into the existing infrastructure data manually. 
+Improving semantic completeness could potentially increase the chance of pragmatic completeness.
+Nonetheless, semantic incompleteness does not necessarily signify pragmatic incompleteness. 
+
+Mapping consistency (\#5.) issues typically occur among data across different sources. Sometimes mapping consistency is broken because of erroneous schema changes \citep{Velegrakis2004}. 
+When key values intended to map to the same external instance are inconsistent, a mapping table can be provided to clarify the %equivalence 
+relations among these keys. %Mapping consistency issues may occur with syntactic consistency issues in keys. 
+
+Time can affect the validity of data. Given a time frame of data validity, timeliness  (\#7.) is  easy to measure if data has metadata or dedicated fields (e.g., timestamps) to indicate its time attributes, e.g., when is the data collected or updated and how long is it valid. %In Example~\ref{eg:y}, there is no timeliness issues in the data; the timetable data, for example, is timestamped, so the users only need to pay attention to querying the data with the correct time expressions. 
+
+Presentation suitability (\#8.) particularly type-sufficiency poses many data issues in AMG. 
+%As mentioned earlier, existing data often does not contain the right content and structure of information required for model generation, i.e., the parts and relations in the simulation model is richer than those represented in the data. 
+Type-sufficiency differs from semantic or pragmatic incompleteness in that the missing information can be deduced from the existing data with sufficient domain knowledge. The data is not (truly) incomplete but the information directly contained is not of the right type. 
+When the domain knowledge and reasoning for deduction can be formalized, we are able to obtain the right type of information automatically from the data. This can be achieved through model transformation discussed in Section~\ref{chap:generation}. 
+%The issues may require model transformations that are of considerable heavy-duty \citep{Mens2006}.
+
+To conclude, with regard to the information of model structure and parameterization, the data that is provided to the AMG as input should be assessed according to how well the data provides information for model component identification, composition and configuration. 
+The requirements for the data (assume that the date has syntactic accuracy and timeliness) should have: 
+(1) semantic and pragmatic completeness, and 
+(2) syntactic and mapping consistency, or conversion rules or mapping tables or alike that can solve the inconsistency in the data. 
+Transformation rules for AMG can be defined when modellers have sufficient domain knowledge and deductive reasoning  to  solve issues related to semantic accuracy and presentation suitability. 
